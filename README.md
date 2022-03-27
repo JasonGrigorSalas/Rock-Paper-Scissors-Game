@@ -1,6 +1,6 @@
 # Rock Paper Scissors Game
 
-A virtual version of the game rock paper scissors.
+A virtual version of the game rock paper scissors. Players have 3 choices and 3 lives.
 
 # Roadmap
 
