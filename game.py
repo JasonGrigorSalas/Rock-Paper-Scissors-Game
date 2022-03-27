@@ -1,41 +1,73 @@
 from random import randint
-choices = ["rock", "paper", "scissors"]
+choices = ["sword", "shield", "fist"]
 player_lives = 3
 computer_lives = 3
 total_lives = 3
-# player_choice = choices[0]
-# print("Index 0 in the choice array is " + player_choice + ", which is Rock.")
-player_choice = input("Choose rock, paper, or scissors: ")
-print("User chose: " + player_choice)
-computer_choice = choices[randint(0, 2)]
-print("Computer chose: " + computer_choice)
-if computer_choice == player_choice:
-    print("Tie :/")
-
-elif computer_choice == "rock":
-    if player_choice == "scissors":
-        print("You lose! :(")
-        # player_lives = player_lives - 1
-        player_lives -= 1
+player_choice = False
+def win_or_lose(status):
+    print("You ", status, " Would you like to play again?")
+    choice = input("Y/N ")
+    if choice == "N" or choice == "n":
+        print("Hope you play again soon! Farewell! :D")
+        exit()
+    elif choice == "Y" or choice == "y":
+        global player_lives
+        global computer_lives
+        global total_lives
+        player_lives = total_lives
+        computer_lives = total_lives
     else:
-        print("You win! :)")
-        computer_lives -= 1
+        print(" ._. ")
+        choice = input("Y/N ")
 
-elif computer_choice == "paper":
-    if player_choice == "scissors":
-        print("You win! :)")
-        computer_lives -= 1
-    else:
-        print("You lose! :(")
-        player_lives -= 1
+while player_choice is False:
+    print("******** Sword Shield Fist ********")
+    print("Computer lives: ", computer_lives, "/", total_lives)
+    print("Player lives: ", player_lives, "/", total_lives)
+    print("***********************************")
+    print("Choose your weapon! Or, if ye be a coward, type quit to exit.")
+    player_choice = input("Choose sword, shield, or fist: ")
+    if player_choice == "quit":
+        print("Hope you play again soon! Farewell! :D")
+        exit()
 
-elif computer_choice == "scissors":
-    if player_choice == "paper":
-        print("You lose! :(")
-        player_lives -= 1
-    else:
-        print("You win! :)")
-        computer_lives -= 1
+    print("User chose: " + player_choice)
+    computer_choice = choices[randint(0, 2)]
+    print("Computer chose: " + computer_choice)
+    if computer_choice == player_choice:
+        print("Tie. :/")
 
-print("Player lives: ", player_lives)
-print("Computer lives: ", computer_lives)
+    elif computer_choice == "sword":
+        if player_choice == "fist":
+            print("You lose! :(")
+            # player_lives = player_lives - 1
+            player_lives -= 1
+        else:
+            print("You win! :)")
+            computer_lives -= 1
+
+    elif computer_choice == "shield":
+        if player_choice == "sword":
+            print("You lose! :(")
+            player_lives -= 1
+        else:
+            print("You win! :)")
+            computer_lives -= 1
+
+    elif computer_choice == "fist":
+        if player_choice == "shield":
+            print("You lose! :(")
+            player_lives -= 1
+        else:
+            print("You win! :)")
+            computer_lives -= 1
+
+    if player_lives == 0:
+        win_or_lose("lose! :(")
+
+    if computer_lives == 0:
+        win_or_lose("win! :)")
+
+    print("Player lives: ", player_lives)
+    print("Computer lives: ", computer_lives)
+    player_choice = False
