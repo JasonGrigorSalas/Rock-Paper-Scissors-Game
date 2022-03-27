@@ -2,6 +2,11 @@
 
 A virtual version of the game rock paper scissors.
 
+# Roadmap
+
+Google doc link:
+https://docs.google.com/document/d/1xyOa79XYM526SSG8oG_onqOFEizdDr7taZVo-9Ln-8M/edit?usp=sharing
+
 # MIT License
 
 Copyright (c) 2022 Jason Grigor-Salas
